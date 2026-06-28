@@ -4,6 +4,7 @@ import { ThemeProvider } from "../components/ThemeProvider";
 import ScrollToTop from "../components/ScrollToTop";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://umer-portfolio-neon.vercel.app"),
   title: "Muhammad Umer | Creative Technologist & Digital Strategist",
   description: "Portfolio of Muhammad Umer, an aspiring technopreneur focused on AI-powered workflows, digital branding, content systems, and creative technology.",
   keywords: ["Muhammad Umer", "Portfolio", "AI Automation", "Digital Marketing", "Visual Design", "Creative Technologist"],
