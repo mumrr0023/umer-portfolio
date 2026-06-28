@@ -3,6 +3,7 @@
 import FeaturedProjects from "../components/FeaturedProjects";
 import CertificatesSection from "../components/CertificatesSection";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -39,11 +40,10 @@ export default function Home() {
   return (
     <main
       id="home"
-      className={`relative overflow-hidden scroll-smooth transition-colors duration-500 ${
-        darkMode
+      className={`relative overflow-hidden scroll-smooth transition-colors duration-500 ${darkMode
           ? "bg-black text-white"
           : "bg-white text-black"
-      }`}
+        }`}
     >
       {/* Background Glows */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-purple-600/20 blur-3xl rounded-full"></div>
@@ -55,11 +55,10 @@ export default function Home() {
 
       {/* NAVBAR */}
       <header
-        className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b transition-colors duration-500 ${
-          darkMode
+        className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b transition-colors duration-500 ${darkMode
             ? "bg-black/30 border-white/10"
             : "bg-white/80 border-black/10"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -70,11 +69,10 @@ export default function Home() {
             {/* Theme Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                darkMode
+              className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-300 ${darkMode
                   ? "border-white/10 bg-white/5 hover:border-cyan-400"
                   : "border-black/10 bg-black/5 hover:border-purple-500"
-              }`}
+                }`}
             >
               {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
@@ -82,9 +80,8 @@ export default function Home() {
 
           {/* Desktop Menu */}
           <nav
-            className={`hidden md:flex gap-8 text-sm ${
-              darkMode ? "text-gray-300" : "text-gray-700"
-            }`}
+            className={`hidden md:flex gap-8 text-sm ${darkMode ? "text-gray-300" : "text-gray-700"
+              }`}
           >
             <a href="#home" className="hover:text-cyan-400 transition">
               Home
@@ -123,16 +120,14 @@ export default function Home() {
         {/* Mobile Menu */}
         {menuOpen && (
           <div
-            className={`md:hidden border-t backdrop-blur-xl ${
-              darkMode
+            className={`md:hidden border-t backdrop-blur-xl ${darkMode
                 ? "bg-black/90 border-white/10"
                 : "bg-white/90 border-black/10"
-            }`}
+              }`}
           >
             <div
-              className={`flex flex-col px-6 py-5 gap-5 ${
-                darkMode ? "text-gray-300" : "text-gray-700"
-              }`}
+              className={`flex flex-col px-6 py-5 gap-5 ${darkMode ? "text-gray-300" : "text-gray-700"
+                }`}
             >
               <a href="#home">Home</a>
               <a href="#about">About</a>
@@ -147,6 +142,23 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative z-10 flex flex-col items-center justify-center text-center min-h-[90vh] pt-24 px-6">
+        {/* Profile Picture */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-8 relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-purple-500/30 shadow-[0_0_40px_rgba(168,85,247,0.4)]"
+        >
+          <Image
+            src="/images/profile-pic.webp"
+            alt="Muhammad Umer Profile"
+            fill
+            sizes="(max-width: 768px) 160px, 192px"
+            className="object-cover"
+            priority
+          />
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -183,9 +195,8 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className={`mt-8 text-lg md:text-xl max-w-2xl leading-relaxed ${
-            darkMode ? "text-gray-300" : "text-gray-700"
-          }`}
+          className={`mt-8 text-lg md:text-xl max-w-2xl leading-relaxed ${darkMode ? "text-gray-300" : "text-gray-700"
+            }`}
         >
           Blending AI automation, visual systems, digital strategy,
           and modern branding to craft impactful digital experiences.
@@ -212,11 +223,10 @@ export default function Home() {
 
           <a
             href="#contact"
-            className={`px-8 py-4 rounded-full border transition-all duration-300 font-medium ${
-              darkMode
+            className={`px-8 py-4 rounded-full border transition-all duration-300 font-medium ${darkMode
                 ? "border-gray-700 hover:border-cyan-400 hover:text-cyan-400"
                 : "border-black/10 hover:border-purple-500 hover:text-purple-600"
-            }`}
+              }`}
           >
             Contact Me
           </a>
@@ -233,22 +243,21 @@ export default function Home() {
         {/* Tags */}
         <div className="flex flex-wrap justify-center gap-3 mt-16 max-w-4xl">
           {[
-            "AI Automation",
+            "Next.js & TypeScript",
+            "Python & C++",
+            "AI Automation & RAG",
+            "Agent-based Workflows",
+            "FastAPI & MongoDB",
             "Digital Marketing",
-            "Visual Design",
+            "UX/UI Design",
             "Brand Strategy",
-            "UX Thinking",
-            "Content Systems",
-            "Creative Direction",
-            "Copywriting",
           ].map((item) => (
             <span
               key={item}
-              className={`px-4 py-2 rounded-full border backdrop-blur-md text-sm transition-all duration-300 ${
-                darkMode
+              className={`px-4 py-2 rounded-full border backdrop-blur-md text-sm transition-all duration-300 ${darkMode
                   ? "border-gray-800 bg-white/5 text-gray-300 hover:border-purple-500"
                   : "border-black/10 bg-black/5 text-gray-700 hover:border-purple-500"
-              }`}
+                }`}
             >
               {item}
             </span>
@@ -274,13 +283,17 @@ export default function Home() {
 
           <div>
             <p
-              className={`leading-relaxed text-lg ${
-                darkMode ? "text-gray-300" : "text-gray-700"
-              }`}
+              className={`leading-relaxed text-lg mb-6 ${darkMode ? "text-gray-300" : "text-gray-700"
+                }`}
             >
-              I’m Muhammad Umer — a Computer Science graduate and aspiring
-              technopreneur focused on AI-powered workflows, digital branding,
-              content systems, and creative technology.
+              I’m Muhammad Umer — a Computer Science student (Graduating 2026) and aspiring
+              technopreneur focused on software development, AI integrations, and creative technology.
+            </p>
+            <p
+              className={`leading-relaxed text-lg ${darkMode ? "text-gray-300" : "text-gray-700"
+                }`}
+            >
+              Passionate about bridging technical development and business objectives through user-focused problem-solving, software design, and intelligent automation. I am continuously expanding my expertise in AI systems, including prompt and context engineering, agent-based workflows, Retrieval-Augmented Generation (RAG), and vector databases to create scalable solutions.
             </p>
           </div>
         </div>
@@ -327,11 +340,10 @@ export default function Home() {
             <motion.div
               whileHover={{ y: -8 }}
               key={card.title}
-              className={`rounded-3xl border backdrop-blur-md p-8 transition-all duration-300 ${
-                darkMode
+              className={`rounded-3xl border backdrop-blur-md p-8 transition-all duration-300 ${darkMode
                   ? "border-white/10 bg-white/5"
                   : "border-black/10 bg-black/5"
-              }`}
+                }`}
             >
               <div className="text-purple-400 mb-5">
                 {card.icon}
@@ -342,14 +354,67 @@ export default function Home() {
               </h3>
 
               <p
-                className={`leading-relaxed ${
-                  darkMode ? "text-gray-400" : "text-gray-700"
-                }`}
+                className={`leading-relaxed ${darkMode ? "text-gray-400" : "text-gray-700"
+                  }`}
               >
                 {card.text}
               </p>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* EDUCATION */}
+      <section
+        id="education"
+        className="relative z-10 max-w-7xl mx-auto px-6 py-24"
+      >
+        <div className="text-center mb-16">
+          <p className="text-purple-400 uppercase tracking-[0.3em] text-sm mb-4">
+            Education
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Academic Background
+          </h2>
+        </div>
+
+        <div className="flex flex-col gap-6 max-w-4xl mx-auto">
+          {/* Degree 1 */}
+          <div className={`p-8 rounded-3xl border backdrop-blur-md transition-all duration-300 ${darkMode ? "border-white/10 bg-white/5" : "border-black/10 bg-black/5"
+            }`}>
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+              <h3 className="text-2xl font-bold">Bachelor of Science in Computer Science</h3>
+              <span className={`text-sm font-medium px-4 py-1.5 rounded-full border mt-3 md:mt-0 ${darkMode ? "border-purple-500/30 text-purple-300 bg-purple-500/10" : "border-purple-500/20 text-purple-700 bg-purple-50"
+                }`}>
+                01/2022 – 02/2026
+              </span>
+            </div>
+            <p className={`text-lg font-medium mb-2 ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+              IQRA University, Islamabad
+            </p>
+            <p className={darkMode ? "text-gray-400" : "text-gray-600"}>
+              GPA: 3.41 (85.3%)
+            </p>
+          </div>
+
+          {/* Degree 2 */}
+          <div className={`p-8 rounded-3xl border backdrop-blur-md transition-all duration-300 ${darkMode ? "border-white/10 bg-white/5" : "border-black/10 bg-black/5"
+            }`}>
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+              <h3 className="text-2xl font-bold">A-Level</h3>
+              <span className={`text-sm font-medium px-4 py-1.5 rounded-full border mt-3 md:mt-0 ${darkMode ? "border-purple-500/30 text-purple-300 bg-purple-500/10" : "border-purple-500/20 text-purple-700 bg-purple-50"
+                }`}>
+                01/2019 – 01/2021
+              </span>
+            </div>
+            <p className={`text-lg font-medium mb-2 ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+              Pak-Turk Maarif International Schools and Colleges, Islamabad
+            </p>
+            <p className={darkMode ? "text-gray-400" : "text-gray-600"}>
+              Participated in Science Technology Fest and Competitions to learn and grow from and with my fellow peers.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -371,9 +436,8 @@ export default function Home() {
         </h2>
 
         <p
-          className={`mt-8 max-w-2xl mx-auto text-lg ${
-            darkMode ? "text-gray-400" : "text-gray-700"
-          }`}
+          className={`mt-8 max-w-2xl mx-auto text-lg ${darkMode ? "text-gray-400" : "text-gray-700"
+            }`}
         >
           Open to collaborations in AI automation, branding,
           creative systems, digital marketing, and modern content workflows.
@@ -389,11 +453,10 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer
-        className={`relative z-10 border-t py-10 px-6 ${
-          darkMode
+        className={`relative z-10 border-t py-10 px-6 ${darkMode
             ? "border-white/10"
             : "border-black/10"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
@@ -402,11 +465,10 @@ export default function Home() {
             </h3>
 
             <p
-              className={`text-sm mt-2 ${
-                darkMode ? "text-gray-400" : "text-gray-700"
-              }`}
+              className={`text-sm mt-2 ${darkMode ? "text-gray-400" : "text-gray-700"
+                }`}
             >
-              Creative Technology • AI Automation • Digital Strategy
+              Software Development • AI Integrations • Creative Technology
             </p>
           </div>
         </div>
@@ -415,11 +477,10 @@ export default function Home() {
         <div className="flex items-center gap-5 mt-6">
           <a
             href="mailto:m.umrr0023@gmail.com"
-            className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-300 ${
-              darkMode
+            className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-300 ${darkMode
                 ? "border-white/10 hover:border-purple-500"
                 : "border-black/10 hover:border-purple-500"
-            }`}
+              }`}
           >
             <Mail size={18} />
           </a>
@@ -427,23 +488,32 @@ export default function Home() {
           <a
             href="https://www.linkedin.com/in/muhammad-umer-aiuxautom/"
             target="_blank"
-            className={`text-sm transition ${
-              darkMode
+            className={`text-sm transition ${darkMode
                 ? "text-gray-400 hover:text-white"
                 : "text-gray-700 hover:text-black"
-            }`}
+              }`}
           >
             LinkedIn
           </a>
 
           <a
-            href="https://wa.me/923175460802"
+            href="https://github.com/mumrr0023"
             target="_blank"
-            className={`text-sm transition ${
-              darkMode
+            className={`text-sm transition ${darkMode
                 ? "text-gray-400 hover:text-white"
                 : "text-gray-700 hover:text-black"
-            }`}
+              }`}
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://wa.me/923175460802"
+            target="_blank"
+            className={`text-sm transition ${darkMode
+                ? "text-gray-400 hover:text-white"
+                : "text-gray-700 hover:text-black"
+              }`}
           >
             Contact
           </a>
