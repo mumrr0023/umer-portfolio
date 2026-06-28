@@ -38,6 +38,7 @@ export default function Home() {
 
   return (
     <main
+      id="home"
       className={`relative overflow-hidden scroll-smooth transition-colors duration-500 ${
         darkMode
           ? "bg-black text-white"
@@ -85,6 +86,10 @@ export default function Home() {
               darkMode ? "text-gray-300" : "text-gray-700"
             }`}
           >
+            <a href="#home" className="hover:text-cyan-400 transition">
+              Home
+            </a>
+
             <a href="#about" className="hover:text-cyan-400 transition">
               About
             </a>
@@ -95,6 +100,10 @@ export default function Home() {
 
             <a href="#projects" className="hover:text-cyan-400 transition">
               Projects
+            </a>
+
+            <a href="#certifications" className="hover:text-cyan-400 transition">
+              Certifications
             </a>
 
             <a href="#contact" className="hover:text-cyan-400 transition">
@@ -125,9 +134,11 @@ export default function Home() {
                 darkMode ? "text-gray-300" : "text-gray-700"
               }`}
             >
+              <a href="#home">Home</a>
               <a href="#about">About</a>
               <a href="#expertise">Expertise</a>
               <a href="#projects">Projects</a>
+              <a href="#certifications">Certifications</a>
               <a href="#contact">Contact</a>
             </div>
           </div>

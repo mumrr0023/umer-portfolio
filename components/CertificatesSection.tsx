@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Award } from "lucide-react";
+import { ExternalLink, Award, Maximize, X } from "lucide-react";
+import { useState } from "react";
 
 const certificates = [
   {
@@ -70,8 +71,10 @@ const certificates = [
 ];
 
 export default function CertificatesSection() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
-    <section className="relative z-10 max-w-7xl mx-auto px-6 py-28">
+    <section id="certifications" className="relative z-10 max-w-7xl mx-auto px-6 py-28">
 
       {/* Heading */}
       <div className="text-center mb-16">
@@ -168,9 +171,28 @@ export default function CertificatesSection() {
             <ExternalLink size={16} />
           </a>
         ) : (
-          <span className="text-sm text-gray-500">
-            Internal Academic Recognition
-          </span>
+          <button
+            onClick={() => setSelectedImage(`/certificates/${
+              [
+                "graphic-design.png",
+                "pixel-art.png",
+                "2d-shooter.png",
+                "ue5-environment.png",
+                "intro-game-design.png",
+                "unity-csharp.png",
+                "scholarship.png",
+                "tryhackme-cybersecurity.png",
+              ][index]
+            }`)}
+            className={`inline-flex items-center gap-2 text-sm font-medium transition ${
+              cert.color === "purple"
+                ? "text-purple-300 hover:text-purple-200"
+                : "text-cyan-300 hover:text-cyan-200"
+            }`}
+          >
+            View
+            <Maximize size={16} />
+          </button>
         )}
 
       </div>
@@ -180,6 +202,31 @@ export default function CertificatesSection() {
   ))}
 
 </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div 
+            className="relative max-w-5xl w-full flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors p-2"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X size={32} />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Certificate Full View"
+              className="w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
 
     </section>
   );

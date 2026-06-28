@@ -2,6 +2,7 @@
 
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import ScrollToTop from "../components/ScrollToTop";
 
 export default function RootLayout({
   children,
@@ -13,6 +14,7 @@ export default function RootLayout({
       <body className="transition-colors duration-500 bg-white dark:bg-black">
         <ThemeProvider attribute="class" defaultTheme="dark">
           {children}
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>
